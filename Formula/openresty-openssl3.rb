@@ -1,17 +1,16 @@
-class OpenrestyOpenssl111 < Formula
-  desc "This OpenSSL 1.1.1 library build is specifically for OpenResty uses"
+class OpenrestyOpenssl3 < Formula
+  desc "This OpenSSL 3 library build is specifically for OpenResty uses"
   homepage "https://www.openssl.org/"
-  VERSION = "1.1.1w".freeze
+  VERSION = "3.0.15".freeze
   revision 1
 
   stable do
-    url "https://www.openssl.org/source/openssl-#{VERSION}.tar.gz"
-    mirror "https://openresty.org/download/openssl-#{VERSION}.tar.gz"
-    sha256 "cf3098950cb4d853ad95c0841f1f9c6d3dc102dccfcacd521d93925208b76ac8"
+    url "https://github.com/openssl/openssl/releases/download/openssl-#{VERSION}/openssl-#{VERSION}.tar.gz"
+    sha256 "23c666d0edf20f14249b3d8f0368acaee9ab585b09e1de82107c66e1f3ec9533"
 
     patch do
-      url "https://raw.githubusercontent.com/openresty/openresty/master/patches/openssl-1.1.1f-sess_set_get_cb_yield.patch"
-      sha256 "d289aa9464552f8caf19de01732ad06832f5f7decaaa4a1eb8c3034ed8a155eb"
+      url "https://raw.githubusercontent.com/openresty/openresty/master/patches/openssl-3.0.15-sess_set_get_cb_yield.patch"
+      sha256 "4c9925018f49c70ebd2f197a4cb15d9517416ad08366bac9849afb0d2b8ec922"
     end
   end
 
@@ -60,6 +59,6 @@ class OpenrestyOpenssl111 < Formula
   end
 
   def openssldir
-    etc/"openssl@1.1.1"
+    etc/"openssl@(3.0.15)"
   end
 end
